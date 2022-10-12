@@ -7,16 +7,22 @@ const Navbar = () => {
   const handleToggle = () => setToggle(!toggle);
   return (
     <NavbarContainer>
-      <div className="logo">
-        <h2>
-          Rent A <span>Car</span>
-        </h2>
+      <div className={toggle ? "nav-menu active" : "nav-menu"}>
+        <div className="left-side">
+          <ul>
+            <li>Home</li>
+            <li>Cars</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+        <div className="right-side">
+          <div className="buttons">
+            <button>Log in</button>
+            <button>Register</button>
+          </div>
+        </div>
       </div>
-      <ul className={toggle ? "nav-menu activeN" : "nav-menu"}>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Contact Us</li>
-      </ul>
       <div className="mobile-menu" onClick={handleToggle}>
         {toggle ? (
           <FaTimes style={{ color: "black", cursor: "pointer" }} size={22} />
@@ -29,21 +35,34 @@ const Navbar = () => {
 };
 
 const NavbarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 2em;
   .nav-menu {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 2em;
+  }
+  .left-side ul {
+    display: flex;
+    align-items: center;
     list-style: none;
+    gap: 10px;
+  }
+  .buttons {
+    display: flex;
+    gap: 5px;
+    button {
+      padding: 7px 15px;
+      border: 2px solid black;
+      border-radius: 10px;
+      background: none;
+    }
   }
   .mobile-menu {
     position: absolute;
-    right: 4%;
+    right: 48%;
     top: 3%;
-    display: none;
     z-index: 100;
+    display: none;
   }
   @media (max-width: 670px) {
     padding: 10px;
@@ -53,11 +72,10 @@ const NavbarContainer = styled.div`
     .nav-menu {
       position: fixed;
       z-index: 99;
-      top: 1%;
-      right: -100%;
+      top: -100%;
       flex-direction: column;
       justify-content: center;
-      width: 60%;
+      width: 100%;
       height: 60vh;
       background-color: var(--main-color);
       align-items: center;
@@ -65,14 +83,22 @@ const NavbarContainer = styled.div`
       box-shadow: -7px 10px 22px 7px rgba(78, 78, 78, 0.82);
       border: 1px solid white;
       transition: 0.4s;
+      ul {
+        flex-direction: column;
+        li {
+          font-size: 20px;
+        }
+      }
+      .buttons {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+      }
     }
-    .nav-menu li {
-      padding: 5px 0;
-      font-size: 24px;
-    }
-    .nav-menu.activeN {
-      right: 0;
-    }
+  }
+  .nav-menu.active {
+    top: 1%;
+    right: 0.4%;
   }
   @media (max-width: 350px) {
     .nav-menu {

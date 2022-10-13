@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import { FaTimes, FaBars } from "react-icons/fa";
 
@@ -19,7 +20,9 @@ const Navbar = () => {
         <div className="right-side">
           <div className="buttons">
             <button>Log in</button>
+            <Link to={'/register'}>
             <button>Register</button>
+            </ Link>
           </div>
         </div>
       </div>
@@ -37,7 +40,7 @@ const Navbar = () => {
 const NavbarContainer = styled.div`
   position: absolute;
   top: 0;
-  background-color: white;
+  backdrop-filter: blur(20px);
   width: 100%;
   .nav-menu {
     display: flex;
@@ -46,6 +49,7 @@ const NavbarContainer = styled.div`
     padding: 10px 2em;
   }
   .left-side ul {
+    color: white;
     display: flex;
     align-items: center;
     list-style: none;
@@ -56,7 +60,8 @@ const NavbarContainer = styled.div`
     gap: 5px;
     button {
       padding: 7px 15px;
-      border: 2px solid black;
+      color: white;
+      border: 2px solid white;
       border-radius: 10px;
       background: none;
     }
@@ -81,7 +86,7 @@ const NavbarContainer = styled.div`
       justify-content: center;
       width: 100%;
       height: 60vh;
-      background-color: var(--main-color);
+      background-color: white;
       align-items: center;
       border-radius: 20px;
       box-shadow: -7px 10px 22px 7px rgba(78, 78, 78, 0.82);
@@ -91,12 +96,18 @@ const NavbarContainer = styled.div`
         flex-direction: column;
         li {
           font-size: 20px;
+          color: black;
         }
       }
       .buttons {
         margin-top: 10px;
         display: flex;
         flex-direction: column;
+          button {
+            
+            color: black;
+            border: 1px solid black;
+          }
       }
     }
   }

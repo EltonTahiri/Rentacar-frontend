@@ -35,6 +35,10 @@ const Navbar = () => {
 };
 
 const NavbarContainer = styled.div`
+  position: absolute;
+  top: 0;
+  background-color: white;
+  width: 100%;
   .nav-menu {
     display: flex;
     align-items: center;

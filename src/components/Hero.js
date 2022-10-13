@@ -20,7 +20,7 @@ const Hero = () => {
 };
 
 const Container = styled.div`
-  margin-top: 3em;
+
   .bg {
     position: absolute;
     z-index: -1;

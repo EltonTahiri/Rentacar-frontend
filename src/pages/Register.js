@@ -48,6 +48,7 @@ const Register = styled.div`
         position: absolute;
         z-index: -1;
         filter: brightness(0.3);
+        object-fit: cover;
     }
     section {
         display: flex;

@@ -12,11 +12,11 @@ const Car = ({ carId }) => {
     const navigate = useNavigate()
     
     if(car) {
-        const handleEdit = () => navigate(`/dash/users/${carId}`)
+        const handleEdit = () => navigate(`/dash/cars/${carId}`) 
 
-        
-      return (
+       return (
         <tr className="table">
+            <td>{car.name}</td>
             <td>{car.manufacturer}</td>
             <td>{car.engine}</td>
             <td>{car.consumption}</td>

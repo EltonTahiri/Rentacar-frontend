@@ -51,7 +51,7 @@ const selectCarsData = createSelector(
 
 //getSelectors creates these selectors and we rename them with aliases using destructuring
 export const {
-    selectAll: selectAllcars,
+    selectAll: selectAllCars,
     selectById: selectCarById,
     selectIds: selectCarIds
     // Pass in a selector that return the cars slice of state

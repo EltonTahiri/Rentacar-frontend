@@ -23,16 +23,21 @@ const CarsList = () => {
         const { ids } = cars
 
         const tableContent = ids?.length
-             ? ids.map(carId => <Car key={carId} userId={carId} />)
+             ? ids.map(carId => <Car key={carId} carId={carId} />)
              : null
 
         content = (
-            <table className='table table--users'>
+            <table className='table'>
                 <thead className='table__thead'>
                     <tr>
-                        <th scope='col' >Manufacturer</th>
-                        <th scope='col' >Engine</th>
-                        <th scope='col' >Consumption</th>
+                        <th scope='col' className='table__th
+                        user__username' >Name</th>
+                        <th scope='col' className='table__th
+                        user__username' >Manufacturer</th>
+                        <th scope='col' className='table__th
+                        user__username'>Engine</th>
+                        <th scope='col' className='table__th
+                        user__username'>Consumption</th>
                         <th scope='col' >Edit</th>
                     </tr>
                 </thead>

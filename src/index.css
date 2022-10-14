@@ -21,3 +21,24 @@ code {
 .nav-link{
   text-decoration: none;
 }
+
+/* Experimental CSS  VV */ 
+
+.table{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 40vh;
+
+ 
+  
+}
+th, td {
+	border: 1px solid black;
+	padding: 8px;
+}
+
+thead th {
+  width: 20%;
+}
+/* End of Experimental CSS */

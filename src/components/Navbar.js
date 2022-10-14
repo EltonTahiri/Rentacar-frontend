@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaTimes, FaBars } from "react-icons/fa";
 
@@ -13,41 +13,41 @@ const Navbar = () => {
           <ul>
             <li>Home</li>
             <li>Cars</li>
+            <li>Contact</li>
             <li>About Us</li>
-            <li>Contact Us</li>
           </ul>
         </div>
         <div className="right-side">
           <div className="buttons">
-            <Link to={'/login'}>
-            <button>Log in</button>
+            <Link to={"/login"}>
+              <button>Sign in</button>
             </Link>
-            <Link to={'/register'}>
-            <button>Register</button>
-            </ Link>
+            <Link to={"/register"}>
+              <button>Register</button>
+            </Link>
           </div>
         </div>
-      </div>
-      <div className="mobile-menu" onClick={handleToggle}>
-        {toggle ? (
-          <FaTimes style={{ color: "black", cursor: "pointer" }} size={22} />
-        ) : (
-          <FaBars style={{ color: "black", cursor: "pointer" }} size={22} />
-        )}
+        <div className="mobile-menu" onClick={handleToggle}>
+          {toggle ? (
+            <FaTimes style={{ color: "black", cursor: "pointer" }} size={22} />
+          ) : (
+            <FaBars style={{ color: "white", cursor: "pointer" }} size={22} />
+          )}
+        </div>
       </div>
     </NavbarContainer>
   );
 };
 
 const NavbarContainer = styled.div`
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 0%;
   backdrop-filter: blur(20px);
   width: 100%;
   .nav-menu {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 10px 2em;
   }
   .left-side ul {
@@ -55,47 +55,64 @@ const NavbarContainer = styled.div`
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 10px;
+    gap: 70px;
+    li {
+      cursor: pointer;
+      :hover {
+        color: #cd0003;
+      }
+    }
   }
   .buttons {
     display: flex;
-    gap: 5px;
+    gap: 15px;
+    align-items: center;
     button {
       padding: 7px 15px;
       color: white;
-      border: 2px solid white;
-      border-radius: 10px;
-      background: none;
+      border: none;
+      font-weight: 650;
+      border-radius: 5px;
+      background: #870002;
+      font-size: 15px;
+      font-family: "Nunito Sans", sans-serif;
+      :hover {
+        cursor: pointer;
+        filter: brightness(0.9);
+      }
     }
   }
   .mobile-menu {
-    position: absolute;
+    position: fixed;
+    top: -3%;
     right: 48%;
-    top: 3%;
     z-index: 100;
     display: none;
+    margin-top: 10px;
   }
   @media (max-width: 670px) {
-    padding: 10px;
     .mobile-menu {
       display: block;
     }
     .nav-menu {
-      position: fixed;
-      z-index: 99;
-      top: -100%;
+      position: absolute;
+      z-index: 999;
+      margin-top: -30em;
       flex-direction: column;
       justify-content: center;
+      gap: 2em;
       width: 100%;
       height: 60vh;
-      background-color: white;
       align-items: center;
-      border-radius: 20px;
-      box-shadow: -7px 10px 22px 7px rgba(78, 78, 78, 0.82);
+      border-radius: 5px;
       border: 1px solid white;
       transition: 0.4s;
+      background: transparent;
+      box-shadow: 0px 0px 15px 4px black;
+      background-color: #fff2f2;
       ul {
         flex-direction: column;
+        gap: 20px;
         li {
           font-size: 20px;
           color: black;
@@ -105,22 +122,11 @@ const NavbarContainer = styled.div`
         margin-top: 10px;
         display: flex;
         flex-direction: column;
-          button {
-            
-            color: black;
-            border: 1px solid black;
-          }
       }
     }
   }
   .nav-menu.active {
-    top: 1%;
-    right: 0.4%;
-  }
-  @media (max-width: 350px) {
-    .nav-menu {
-      width: 90%;
-    }
+    margin-top: 0;
   }
 `;
 

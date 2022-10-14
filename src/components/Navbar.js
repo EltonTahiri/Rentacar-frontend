@@ -44,6 +44,7 @@ const NavbarContainer = styled.div`
   top: 0%;
   backdrop-filter: blur(20px);
   width: 100%;
+  z-index: 999;
   .nav-menu {
     display: flex;
     align-items: center;

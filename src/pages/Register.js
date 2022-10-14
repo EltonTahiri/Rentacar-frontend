@@ -1,65 +1,63 @@
-import React from 'react'
-import styled from 'styled-components'
-import porscheimg from '../assets/porsche.jpg'
-import model from '../assets/model.jpg'
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import styled from "styled-components";
+import porscheimg from "../assets/porsche.jpg";
+import model from "../assets/model.jpg";
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   return (
     <Register>
-    <section >
-        <img className='background-image' src={model}></img> 
-        <div className='register'>
-            <div className='col-1'>
-                <h2>Sign Up</h2>
-                <span>Register and start renting immidiately</span>
+      <section>
+        <img className="background-image" src={model} alt="" />
+        <div className="register">
+          <div className="col-1">
+            <h2>Sign Up</h2>
+            <span>Register and start renting immidiately</span>
 
-                <form id='form' className='flex flex-col'>
-                    <input type='text' placeholder='Username'></input>
-                    <input type='text' placeholder='Email'></input>
-                    <input type='text' placeholder='Phone'></input>
-                    <input type='text' placeholder='Password'></input>
-                    <input type='text' placeholder='Confirm password'></input>
+            <form id="form" className="flex flex-col">
+              <input type="text" placeholder="Username"></input>
+              <input type="text" placeholder="Email"></input>
+              <input type="text" placeholder="Phone"></input>
+              <input type="text" placeholder="Password"></input>
+              <input type="text" placeholder="Confirm password"></input>
 
-                    <button className='btn'>Register</button>
-                    <div className='other'>
-                        <Link to={'/'} className='nav-link'>
-                        <span className='home'>Back Home</span>
-                        </Link>
-                        <Link to={'/login'} className='nav-link'>
-                        <span className='home'>Login instead</span>
-                        </Link>
-                    </div>
-                </form>
-            </div>
-            <div className='col-2'>
-                <img src={porscheimg} alt=""  />
-            </div>
+              <button className="btn">Register</button>
+              <div className="other">
+                <Link to={"/"} className="nav-link">
+                  <span className="home">Back Home</span>
+                </Link>
+                <Link to={"/login"} className="nav-link">
+                  <span className="home">Login instead</span>
+                </Link>
+              </div>
+            </form>
+          </div>
+          <div className="col-2">
+            <img src={porscheimg} alt="" />
+          </div>
         </div>
-    </section>
+      </section>
     </Register>
-  )
-}
-
+  );
+};
 
 const Register = styled.div`
-    .background-image{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        z-index: -1;
-        filter: brightness(0.3);
-        object-fit: cover;
-    }
-    section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 100vh;
-    }
-  
+  .background-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    filter: brightness(0.3);
+    object-fit: cover;
+  }
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+  }
+
   .App {
     height: 100vh;
     display: flex;
@@ -67,14 +65,14 @@ const Register = styled.div`
     align-items: center;
     text-align: center;
   }
-  
-  .register{
+
+  .register {
     color: white;
     border-radius: 20px;
     max-width: 978px;
     width: 100vw;
     background-color: blue;
-    display:flex;
+    display: flex;
     justify-content: center;
     overflow: hidden;
     border: none;
@@ -83,67 +81,68 @@ const Register = styled.div`
     box-shadow: 0px 0px 15px 4px black;
     backdrop-filter: blur(20px);
   }
-  .home{
-    :hover{
-        color: red;
+  .home {
+    :hover {
+      color: red;
     }
   }
-  
-  .register span{
+
+  .register span {
     color: #adb5bd;
   }
-  .other{
+  .other {
     display: flex;
     justify-content: space-between;
   }
-  
-  #form{
+
+  #form {
     max-width: 320px;
     width: 100vw;
     margin: 2em auto;
   }
-  
-  #form >  input, .btn{
+
+  #form > input,
+  .btn {
     border: none;
-    padding: .9em 1em;
+    padding: 0.9em 1em;
   }
   #form input {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     border: 1px solid grey;
     border-radius: 10px;
   }
-  
-  #form > input:focus{
+
+  #form > input:focus {
     outline: none;
   }
-  
-  #form > .btn{
+
+  #form > .btn {
     background-color: #870002;
     color: #e9ecef;
     font-size: 1em;
     border-radius: 10px;
     cursor: pointer;
     :hover {
-        transition: 0.2s;
-        filter: brightness(0.8);
+      transition: 0.2s;
+      filter: brightness(0.8);
     }
   }
-  
-  .flex{
+
+  .flex {
     display: flex;
     gap: 1em;
   }
-  
-  .flex-col{
+
+  .flex-col {
     flex-direction: column;
   }
-  
-  .register .col-1{
+
+  .register .col-1 {
     margin: auto;
     padding: 3em 0;
   }
-  
-  .register .col-2 img{
+
+  .register .col-2 img {
     width: 480px;
     height: 100%;
     object-fit: cover;
@@ -151,13 +150,11 @@ const Register = styled.div`
     filter: brightness(0.8);
     display: none;
   }
-  
-  @media screen and (min-width: 860px)  {
-    .register .col-2 img{
+
+  @media screen and (min-width: 860px) {
+    .register .col-2 img {
       display: initial;
     }
   }
-
-
-`
-export default RegisterForm
+`;
+export default RegisterForm;

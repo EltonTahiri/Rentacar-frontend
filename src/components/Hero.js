@@ -20,7 +20,6 @@ const Hero = () => {
 };
 
 const Container = styled.div`
-
   .bg {
     position: absolute;
     z-index: -1;
@@ -47,6 +46,7 @@ const Container = styled.div`
       padding: 10px;
       width: 300px;
       border-radius: 20px;
+      border: none;
     }
   }
 `;

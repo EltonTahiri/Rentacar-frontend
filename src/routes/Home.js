@@ -1,4 +1,5 @@
 import React from "react";
+import CarsSection from "../components/CarsSection";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
+      <CarsSection />
     </div>
   );
 };

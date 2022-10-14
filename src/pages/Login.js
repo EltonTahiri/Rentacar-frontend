@@ -1,49 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
 import porscheimg from '../assets/porsche.jpg'
-import model from '../assets/model.jpg'
+import backgroundVid from '../assets/videoplayback.mp4'
 import { Link } from 'react-router-dom';
 
 
-const RegisterForm = () => {
+const LoginForm = () => {
   return (
-    <Register>
+    <Login>
     <section >
-        <img className='background-image' src={model}></img> 
-        <div className='register'>
+        <video autoPlay loop muted className='background-image'>
+            <source src={backgroundVid} type='video/mp4' />
+        </video>
+        <div className='login'>
             <div className='col-1'>
-                <h2>Sign Up</h2>
-                <span>Register and start renting immidiately</span>
+                <h2>Sign in</h2>
+                <span>Login with your registered account</span>
 
                 <form id='form' className='flex flex-col'>
-                    <input type='text' placeholder='Username'></input>
                     <input type='text' placeholder='Email'></input>
-                    <input type='text' placeholder='Phone'></input>
                     <input type='text' placeholder='Password'></input>
-                    <input type='text' placeholder='Confirm password'></input>
 
-                    <button className='btn'>Register</button>
+                    <button className='btn'>Login</button>
                     <div className='other'>
                         <Link to={'/'} className='nav-link'>
                         <span className='home'>Back Home</span>
                         </Link>
-                        <Link to={'/login'} className='nav-link'>
-                        <span className='home'>Login instead</span>
+                        <Link to={'/register'} className='nav-link'>
+                        <span className='home'>Don't have an account?</span>
                         </Link>
                     </div>
                 </form>
             </div>
-            <div className='col-2'>
-                <img src={porscheimg} alt=""  />
-            </div>
         </div>
     </section>
-    </Register>
+    </Login>
   )
 }
 
 
-const Register = styled.div`
+const Login = styled.div`
     .background-image{
         width: 100%;
         height: 100%;
@@ -60,20 +56,11 @@ const Register = styled.div`
         height: 100vh;
     }
   
-  .App {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .register{
+  .login{
     color: white;
     border-radius: 20px;
-    max-width: 978px;
+    max-width: 700px;
     width: 100vw;
-    background-color: blue;
     display:flex;
     justify-content: center;
     overflow: hidden;
@@ -89,7 +76,7 @@ const Register = styled.div`
     }
   }
   
-  .register span{
+  .login span{
     color: #adb5bd;
   }
   .other{
@@ -138,12 +125,12 @@ const Register = styled.div`
     flex-direction: column;
   }
   
-  .register .col-1{
+  .login .col-1{
     margin: auto;
     padding: 3em 0;
   }
   
-  .register .col-2 img{
+  .login .col-2 img{
     width: 480px;
     height: 100%;
     object-fit: cover;
@@ -153,11 +140,11 @@ const Register = styled.div`
   }
   
   @media screen and (min-width: 860px)  {
-    .register .col-2 img{
+    .login .col-2 img{
       display: initial;
     }
   }
 
 
 `
-export default RegisterForm
+export default LoginForm

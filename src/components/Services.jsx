@@ -67,7 +67,7 @@ const Container = styled.div`
       font-size: 25px;
     }
     color: white;
-    height: 85vh;
+    height: 88vh;
     width: 100%;
     padding: 2em 3em;
     .items {
@@ -120,7 +120,7 @@ const Container = styled.div`
   }
   @media (max-width: 730px) {
     video {
-      height: 150vh;
+      height: 155vh;
     }
     .services {
       height: 150vh;

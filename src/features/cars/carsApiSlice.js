@@ -32,11 +32,48 @@ export const carsApiSlice = apiSlice.injectEndpoints({
                 } else return [{ type: 'Car', id: 'List'}]
             }
         }),
+        addNewCar : builder.mutation({
+            query: initialState => ({
+                url: '/cars',
+                method: 'POST',
+                body: {
+                    ...initialState
+                }
+            }),
+            invalidatesTags: [
+                { type: 'Car', id: 'List'}
+            ]
+        }),
+        updateCar: builder.mutation({
+            query: initialState => ({
+                url: '/cars',
+                method: 'PATCH',
+                body: {
+                    ...initialState
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                {type: 'Note', id: arg.id}
+            ]
+        }),
+        deleteCar: builder.mutation({
+            query: ({ id }) => ({
+                url: '/cars',
+                method: 'DELETE',
+                body: { id }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Car', id: arg.id}
+            ]
+        }),
     }),
 })
 
 export const {
     useGetCarsQuery,
+    useAddNewCarMutation,
+    useUpdateCarMutation,
+    useDeleteCarMutation
 } = carsApiSlice
 
 // returns the query result object

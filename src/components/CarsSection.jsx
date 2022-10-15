@@ -100,12 +100,9 @@ const CarsContainer = styled.div`
       }
     }
     h2 {
-      background-color: #00000024;
-      padding: 7px;
       border-radius: 10px;
+      padding: 3em;
       :hover {
-        background-color: #00000089;
-        color: white;
         transition: 0.3s;
         cursor: pointer;
       }

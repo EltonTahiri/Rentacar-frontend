@@ -11,61 +11,124 @@ const Services = () => {
         </video>
       </div>
       <div className="services">
-        <h3 className="title">Our Services</h3>
-        <ul>
-          <li>Business Rentals</li>
-          <li>Enterprise Car Sales</li>
-          <li>Replacement Rentals</li>
-          <li>Long-Drive Renetals</li>
-          <li>1 Year+ Rentals</li>
-        </ul>
+        <h3 className="title">The Services We Offer</h3>
+        <div className="items">
+          <div className="item">
+            <h3>Long-Drive Rentals</h3>
+            <p>
+              We offer long-drive cars for yours trips. With our best long-drive
+              cars, you will love the experience of your long-trip.
+            </p>
+            <button>Choose Your Ride</button>
+          </div>
+          <div className="item">
+            <h3>Business Rentals</h3>
+            <p>
+              We offer cars for your business too. Chose the cars that suites
+              you or your bussiness from our amazing cars.
+            </p>
+            <button>Choose Your Ride</button>
+          </div>
+          <div className="item">
+            <h3>Replacement Rentals</h3>
+            <p>
+              Don't like or need your own ride. Choose a better one here. Plan
+              your next road trip, weekend getaway or personal challange.
+            </p>
+            <button>Choose Your Replacement</button>
+          </div>
+          <div className="item">
+            <h3>Luxury Rentals</h3>
+            <p>
+              We offer some of the luxuriest cars of this time. Endless options
+              from the best car compaines. Chose your luxury ride!
+            </p>
+            <button>Choose Your Luxury Ride</button>
+          </div>
+        </div>
       </div>
     </Container>
   );
 };
 
 const Container = styled.div`
+  display: flex;
   video {
     width: 100%;
     filter: brightness(0.3);
     object-fit: cover;
-    height: 70vh;
+    height: 94vh;
     position: absolute;
     z-index: -1;
     padding-bottom: 3em;
   }
   .services {
-    display: flex;
-    flex-direction: column;
-    border-radius: 7px;
-    align-items: center;
-    float: right;
-    margin-right: 7em;
-    backdrop-filter: blur(20px);
-    box-shadow: 0px 0px 7px 2px white;
-    padding: 4em 7em;
-    margin-top: 3em;
+    .title {
+      font-size: 25px;
+    }
     color: white;
+    height: 85vh;
+    width: 100%;
+    padding: 2em 3em;
+    .items {
+      margin-top: 5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      flex-wrap: wrap;
+      .item {
+        backdrop-filter: blur(20px);
+        box-shadow: 0px 0px 7px 2px black;
+        width: 300px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 7px;
+        padding: 1em;
+        gap: 10px;
+        h3 {
+          font-weight: 500;
+          text-decoration: underline;
+        }
+        button {
+          padding: 5px 7px;
+          font-size: 17px;
+          border-radius: 5px;
+          border: none;
+          background-color: #870002;
+          backdrop-filter: blur(20px);
+          color: white;
+          margin-top: 5px;
+          cursor: pointer;
+          :hover {
+            filter: brightness(0.9);
+          }
+        }
+      }
+    }
     .title {
       font-family: "Poppins";
       font-weight: 500;
+      margin-top: 2em;
       margin-bottom: 1em;
-    }
-    ul {
-      li {
-        font-size: 20px;
-        font-weight: 300;
-      }
+      text-align: center;
     }
   }
-  @media (max-width: 630px) {
+  @media (max-width: 730px) {
+    video {
+      height: 150vh;
+    }
     .services {
-      margin-right: 1em;
+      height: 150vh;
     }
   }
-  @media (max-width: 460px) {
+  @media (max-width: 500px) {
     .services {
-      padding: 4em 5em;
+      padding: 2em 1em;
     }
   }
 `;

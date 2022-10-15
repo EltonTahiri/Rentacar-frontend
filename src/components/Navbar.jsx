@@ -85,11 +85,15 @@ const NavbarContainer = styled.div`
   }
   .mobile-menu {
     position: fixed;
-    top: -3%;
-    right: 48%;
+    top: 4%;
+    right: 46%;
     z-index: 100;
     display: none;
     margin-top: 10px;
+    padding: 5px 8px;
+    padding-top: 10px;
+    border-radius: 10px;
+    background-color: #00000063;
   }
   @media (max-width: 670px) {
     .mobile-menu {

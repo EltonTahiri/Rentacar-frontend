@@ -15,11 +15,13 @@ const Car = ({ carId }) => {
         const handleEdit = () => navigate(`/dash/cars/${carId}`) 
 
        return (
-        <tr className="table">
+        <tr className="car-table">
             <td>{car.name}</td>
             <td>{car.manufacturer}</td>
             <td>{car.engine}</td>
             <td>{car.consumption}</td>
+            <td>{car.seats}</td>
+            <td>{car.licensePlate}</td>
             <td>
                 <button
                 onClick={handleEdit} 

@@ -15,7 +15,6 @@ export const carsApiSlice = apiSlice.injectEndpoints({
             validateStatus: (response, result) => {
                 return response.status === 200 && !result.isError
             },
-            keepUnusedDataFor: 5,
             transformResponse: responseData => {
                 const loadedCars = responseData.map(car => {
                     car.id = car._id
@@ -33,11 +32,11 @@ export const carsApiSlice = apiSlice.injectEndpoints({
             }
         }),
         addNewCar : builder.mutation({
-            query: initialState => ({
+            query: initialCarData => ({
                 url: '/cars',
                 method: 'POST',
                 body: {
-                    ...initialState
+                    ...initialCarData
                 }
             }),
             invalidatesTags: [
@@ -45,11 +44,11 @@ export const carsApiSlice = apiSlice.injectEndpoints({
             ]
         }),
         updateCar: builder.mutation({
-            query: initialState => ({
+            query: initialCarData => ({
                 url: '/cars',
                 method: 'PATCH',
                 body: {
-                    ...initialState
+                    ...initialCarData
                 }
             }),
             invalidatesTags: (result, error, arg) => [

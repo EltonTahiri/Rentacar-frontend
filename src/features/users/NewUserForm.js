@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { ROLES } from "../../config/roles";
 import styled from "styled-components";
 
-const USER_REGEX = /^[A-z]{3,20}$/;
+const USER_REGEX = /^[A-z0-9]{3,20}$/;
 const PWD_REGEX = /^[A-z0-9@#$%!]{4,12}$/;
 const EM_REGEX = /^[A-z0-9@#$%.]{5,35}$/
 const PH_REGEX = /^[0-9+]{5,20}$/
@@ -147,7 +147,7 @@ const NewUserForm = () => {
                     className={`form__input ${validPhoneClass}`}
                     id="phone"
                     name="phone"
-                    type="[hone"
+                    type="number"
                     autoComplete="off"
                     value={phone}
                     onChange={onPhoneChanged}

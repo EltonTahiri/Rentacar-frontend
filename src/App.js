@@ -9,6 +9,7 @@ import EditUser from "./features/users/EditUser";
 import NewUserForm from "./features/users/NewUserForm";
 import EditCar from "./features/cars/EditCar";
 import NewCar from "./features/cars/NewCar";
+import Prefetch from "./features/auth/Prefetch";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
 
+        <Route element={<Prefetch />} >
           <Route path="dash" element={<DashLayout />}>
 
 
@@ -34,6 +36,7 @@ function App() {
             </Route>
 
           </Route>{/* End Dash */}
+          </Route>
       </Routes>
     </>
   );

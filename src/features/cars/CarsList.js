@@ -9,7 +9,11 @@ const CarsList = () => {
         isSuccess,
         isError,
         error
-    } = useGetCarsQuery()
+    } = useGetCarsQuery(undefined, {
+        pollingInterval: 15000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
+    })
 
     let content
 
@@ -38,6 +42,10 @@ const CarsList = () => {
                         user__username'>Engine</th>
                         <th scope='col' className='table__th
                         user__username'>Consumption</th>
+                        <th scope='col' className='table__th
+                        user__username'>Seats</th>
+                        <th scope='col' className='table__th
+                        user__username'>LicensePlate</th>
                         <th scope='col' >Edit</th>
                     </tr>
                 </thead>

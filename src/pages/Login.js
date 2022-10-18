@@ -1,23 +1,91 @@
 import React from "react";
 import styled from "styled-components";
 import backgroundVid from "../assets/videoplayback.mp4";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useRef, useState, useEffect } from "react";
+
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../features/auth/authSlice";
+import { useLoginMutation } from "../features/auth/authApiSlice";
 
 const LoginForm = () => {
-  return (
+  const userRef = useRef();
+  const errRef = useRef();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [login, { isLoading }] = useLoginMutation()
+
+  useEffect(() => {
+    userRef.current.focus()
+  },[])
+
+  useEffect(() => {
+    setErrMsg('')
+  },[email, password])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const { accessToken } = await login({ email, password }).unwrap()
+      dispatch(setCredentials({ accessToken }))
+      setEmail('')
+      setPassword('')
+      navigate('/')
+    } catch (err) {
+      if(!err.status) {
+        setErrMsg('No server response');
+      } else if (err.status === 400) {
+        setErrMsg('Missing email or password')
+      } else if (err.status === 401) {
+        setErrMsg('Unauthorized')
+      } else {
+        setErrMsg(err.data?.message)
+      }
+      errRef.current.focus()
+    }
+  }
+
+  const handleUserInput = (e) => setEmail(e.target.value)
+  const handlePwdInput = (e) => setPassword(e.target.value)
+
+  const errClass = errMsg ? "errmsg" : "offscreen";
+
+  if (isLoading) return <p>Loading...</p>;
+
+  const content = (
     <Login>
       <section>
         <video autoPlay loop muted className="background-image">
           <source src={backgroundVid} type="video/mp4" />
         </video>
         <div className="login">
+          <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
           <div className="col-1">
             <h2>Sign in</h2>
             <span>Login with your registered account</span>
 
-            <form id="form" className="flex flex-col">
-              <input type="text" placeholder="Email"></input>
-              <input type="text" placeholder="Password"></input>
+            <form id="form" className="flex flex-col" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Email"
+                ref={userRef}
+                value={email}
+                onChange={handleUserInput}
+                autoComplete="off"
+                required
+              ></input>
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={handlePwdInput}
+                value={password}
+                required
+              ></input>
 
               <button className="btn">Login</button>
               <div className="other">
@@ -34,6 +102,8 @@ const LoginForm = () => {
       </section>
     </Login>
   );
+
+  return content;
 };
 
 const Login = styled.div`

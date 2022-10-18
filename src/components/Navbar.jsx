@@ -2,10 +2,40 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaTimes, FaBars } from "react-icons/fa";
+import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate, useLocation } from "react-router-dom";
+
+import { useSendLogoutMutation } from "../features/auth/authApiSlice";
+
+const HOME_REGEX = /^\/home(\/)?$/
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const handleToggle = () => setToggle(!toggle);
+
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+
+
+  const [sendLogout,{
+    isLoading,
+    isSuccess,
+    isError,
+    error
+  }] = useSendLogoutMutation()
+
+  useEffect(() => {
+    if(isSuccess) navigate('/')
+  },[isSuccess, navigate])
+
+  const onLogoutClicked = () => sendLogout()
+
+  if(isLoading) return <p>Logging out...</p>
+
+  if(isError) return <p>Error: {error.message}</p>
+
   return (
     <NavbarContainer>
       <div className={toggle ? "nav-menu active" : "nav-menu"}>
@@ -25,6 +55,7 @@ const Navbar = () => {
             <Link to={"/register"}>
               <button>Register</button>
             </Link>
+            <button onClick={onLogoutClicked}>Log Out</button>
           </div>
         </div>
         <div className="mobile-menu" onClick={handleToggle}>

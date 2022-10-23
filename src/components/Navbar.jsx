@@ -11,10 +11,14 @@ const Navbar = () => {
       <div className={toggle ? "nav-menu active" : "nav-menu"}>
         <div className="left-side">
           <ul>
-            <li>Home</li>
+            <Link to={"/"} className="nav-link">
+              <li>Home</li>
+            </Link>
             <li>Cars</li>
             <li>Contact</li>
-            <li>About Us</li>
+            <Link to={"/about-us"} className="nav-link">
+              <li>About Us</li>
+            </Link>
           </ul>
         </div>
         <div className="right-side">

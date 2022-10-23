@@ -22,28 +22,27 @@ code {
 
 .nav-link {
   text-decoration: none;
+  color: white;
 }
 
-/* Experimental CSS  VV */ 
+/* Experimental CSS  VV */
 
-.car-table{
+.car-table {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.table{
+.table {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   margin-top: 40vh;
-
- 
-  
 }
-th, td {
-	border: 1px solid black;
-	padding: 8px;
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
 }
 
 thead th {
@@ -100,6 +99,5 @@ thead th {
   width: auto;
   height: auto;
 }
-
 
 /* End of Experimental CSS */
